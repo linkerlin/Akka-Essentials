@@ -89,7 +89,7 @@
                         </launcher>
                         <launcher>
                             <id>Example3</id>
-                            <mainClass>org.akka.essentials.scala.supervisor.example2.MyActorSystem</mainClass>
+                            <mainClass>org.akka.essentials.scala.supervisor.example3.MyActorSystem</mainClass>
                         </launcher>
                     </launchers>
                 </configuration>
