@@ -1,15 +1,6 @@
 package org.akka.essentials.scala.supervisor.example3
 import akka.actor.ActorSystem
 import akka.actor.Props
-import akka.pattern.ask
-import akka.util.duration._
-import akka.dispatch.Await
-import akka.util.Timeout
-import akka.actor.ActorLogging
-import akka.actor.Actor
-import akka.actor.OneForOneStrategy
-import akka.dispatch.Future
-import akka.actor.SupervisorStrategy._
 import akka.actor.ActorRef
 
 case class Result

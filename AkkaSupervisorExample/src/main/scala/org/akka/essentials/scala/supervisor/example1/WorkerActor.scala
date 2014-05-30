@@ -4,7 +4,6 @@ import akka.actor.Actor
 import akka.actor.ActorLogging
 
 class WorkerActor extends Actor with ActorLogging {
-  import org.akka.essentials.java.supervisor.example1.Result
   var state: Int = 0
 
   override def preStart() {
@@ -23,7 +22,8 @@ class WorkerActor extends Actor with ActorLogging {
       sender ! state
     case ex: NullPointerException =>
       throw new NullPointerException("Null Value Passed")
-    case _ =>
+    case x =>
+      println("receive:"+x)
       throw new IllegalArgumentException("Wrong Arguement")
   }
 }

@@ -4,7 +4,6 @@ import akka.actor.Actor
 import akka.actor.ActorLogging
 
 class WorkerActor2 extends Actor with ActorLogging {
-  import org.akka.essentials.java.supervisor.example2.Result
 
   var state: Int = 0
 

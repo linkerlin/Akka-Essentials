@@ -2,15 +2,12 @@ package org.akka.essentials.scala.supervisor.example3
 import akka.actor.Actor
 import akka.actor.ActorLogging
 import akka.actor.Props
-import akka.dispatch.Future
-import akka.pattern.ask
-import akka.util.Timeout
-import akka.dispatch.Await
+import scala.concurrent.duration.FiniteDuration
+import java.util.concurrent.TimeUnit
 
 class SupervisorActor extends Actor with ActorLogging {
   import akka.actor.OneForOneStrategy
   import akka.actor.SupervisorStrategy._
-  import akka.util.duration._
   import org.akka.essentials.java.supervisor.example3._
 
   var childActor = context.actorOf(Props[WorkerActor], name = "workerActor")
@@ -20,7 +17,7 @@ class SupervisorActor extends Actor with ActorLogging {
     monitor ! new RegisterWorker(childActor, self)
   }
 
-  override val supervisorStrategy = OneForOneStrategy(maxNrOfRetries = 10, withinTimeRange = 10 seconds) {
+  override val supervisorStrategy = OneForOneStrategy(maxNrOfRetries = 10, withinTimeRange = FiniteDuration(10, TimeUnit.SECONDS)) {
 
     case _: ArithmeticException => Resume
     case _: NullPointerException => Restart
