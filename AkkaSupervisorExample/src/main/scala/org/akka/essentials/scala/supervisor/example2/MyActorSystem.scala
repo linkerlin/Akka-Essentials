@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit
 import scala.concurrent.Await
 
 
-case class Result
+case class Result()
 
 object MyActorSystem {
   
@@ -51,7 +51,7 @@ object MyActorSystem {
 
     log.info("Worker Actors shutdown !")
 
-    system.shutdown
+    system.shutdown()
   }
 
 }

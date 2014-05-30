@@ -8,7 +8,7 @@ import akka.pattern.ask
 import akka.util.Timeout
 import java.util.concurrent.TimeUnit
 
-case class Result
+case class Result()
 
 object MyActorSystem {
   def main(args: Array[String]): Unit = {
@@ -49,7 +49,7 @@ object MyActorSystem {
 
     supervisor ? "Do Something"
 
-    system.shutdown
+    system.shutdown()
   }
 
 }
