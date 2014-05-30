@@ -10,7 +10,7 @@ class WorkerActor extends Actor with ActorLogging {
     log.info("Starting WorkerActor instance hashcode # {}", this.hashCode())
   }
   override def postStop() {
-    log.info("Stopping WorkerActor instance hashcode # {}", this.hashCode());
+    log.info("Stopping WorkerActor instance hashcode # {}", this.hashCode())
   }
   def receive: Receive = {
     case value: Int =>
