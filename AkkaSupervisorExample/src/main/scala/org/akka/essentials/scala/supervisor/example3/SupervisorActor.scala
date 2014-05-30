@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit
 class SupervisorActor extends Actor with ActorLogging {
   import akka.actor.OneForOneStrategy
   import akka.actor.SupervisorStrategy._
-  import org.akka.essentials.java.supervisor.example3._
+
 
   var childActor = context.actorOf(Props[WorkerActor], name = "workerActor")
   val monitor = context.system.actorOf(Props[MonitorActor], name = "monitor")
