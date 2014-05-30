@@ -3,9 +3,9 @@ import akka.actor.ActorSystem
 import akka.actor.Props
 import akka.actor.ActorRef
 
-case class Result
-case class DeadWorker
-case class RegisterWorker(val worker: ActorRef, val supervisor: ActorRef)
+case class Result()
+case class DeadWorker()
+case class RegisterWorker(worker: ActorRef, supervisor: ActorRef)
 
 object MyActorSystem {
   
@@ -14,7 +14,7 @@ object MyActorSystem {
 
     val supervisor = system.actorOf(Props[SupervisorActor], name = "supervisor")
 
-    var mesg: Int = 8
+    val mesg: Int = 8
     supervisor ! mesg
 
     supervisor ! "Do Something"
@@ -23,6 +23,6 @@ object MyActorSystem {
 
     supervisor ! mesg
 
-    system.shutdown
+    system.shutdown()
   }
 }
