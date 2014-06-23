@@ -1,14 +1,17 @@
 package org.akka.essentials.java.router.example.scattergatherfirstcomplete;
 
+import akka.dispatch.Await;
+import akka.dispatch.Future;
+import akka.util.Duration;
 import org.akka.essentials.java.router.example.RandomTimeActor;
 
+//import scala.concurrent.Await;
+//import scala.concurrent.Future;
+//import scala.concurrent.duration.Duration;
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
-import akka.dispatch.Await;
-import akka.dispatch.Future;
 import akka.routing.ScatterGatherFirstCompletedRouter;
-import akka.util.Duration;
 import akka.util.Timeout;
 
 public class Example {
@@ -30,7 +33,7 @@ public class Example {
 				scatterGatherFirstCompletedRouter, "message", timeout);
 		String result = (String) Await.result(futureResult, timeout.duration());
 		System.out.println(result);
-		
+
 		_system.shutdown();
 
 	}
